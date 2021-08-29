@@ -16,7 +16,7 @@ import java.util.Scanner;
 		System.out.println("달을 입력하세요");
 		int[] monthMaxDays = {31,28,31,30,31,30,31,31,30,31,30,31};
 		int a = scanner.nextInt();
-		System.out.printf("%d월달은 %d일까지 있습니다. \n",a,monthMaxDays[a-1]);
+		System.out.printf("%d월달은 %d일까지 있습니다.",a,monthMaxDays[a-1]);
 		scanner.close();
 	}
 }
