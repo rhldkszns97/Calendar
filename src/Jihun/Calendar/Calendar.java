@@ -1,6 +1,9 @@
 package Jihun.Calendar;
 
-public class Calendar {
+import java.util.Arrays;
+import java.util.Scanner;
+
+	public class Calendar {
 	public static void main(String[] args) {
 		System.out.println(" 일 월  화 수  목  금 토");
 		System.out.println("---------------------");
@@ -8,5 +11,13 @@ public class Calendar {
 		System.out.println(" 8  9 10 11 12 13 14");
 		System.out.println("15 16 17 18 19 20 21");
 		System.out.println("22 23 24 25 26 27 28");
+		
+//	 숫자를 입력받아 입력받은 달의 최대 일수를 구하는 프로그램
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("달을 입력하세요");
+		int[] monthMaxDays = {31,28,31,30,31,30,31,31,30,31,30,31};
+		int a = scanner.nextInt();
+		System.out.printf("%d월달은 %d일까지 있습니다. \n",a,monthMaxDays[a-1]);
+		scanner.close();
 	}
 }
