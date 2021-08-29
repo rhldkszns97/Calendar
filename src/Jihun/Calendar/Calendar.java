@@ -1,6 +1,5 @@
 package Jihun.Calendar;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 	public class Calendar {
