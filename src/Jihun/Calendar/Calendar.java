@@ -1,7 +1,5 @@
 package Jihun.Calendar;
 
-import java.util.Scanner;
-
 public class Calendar {
 
 	private static int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -28,11 +26,10 @@ public class Calendar {
 		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("----------------------");
 		int count = 7 - weekday;
-		int delim = count;
+		int delim;
 		if (count < 7) {
 			delim = count;
-		}
-		else {
+		} else {
 			delim = 0;
 		}
 		for (int i = 1; i <= weekday; i++) {
@@ -44,7 +41,7 @@ public class Calendar {
 		System.out.println();
 		for (int i = count + 1; i <= getMaxDaysOfMonth(year, month, weekday); i++) {
 			System.out.printf("%3d", i);
-			
+
 			if (i % 7 == delim) {
 				System.out.println();
 			}
