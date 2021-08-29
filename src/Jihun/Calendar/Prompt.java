@@ -10,23 +10,16 @@ public class Prompt {
 		// 숫자를 입력받아 입력받은 달의 최대 일수를 구하는 프로그램
 		Calendar cal = new Calendar();
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("반복 횟수를 입력하세요");
-		System.out.print(PROMPT);
-		int repeat = scanner.nextInt();
-		int month[] = new int[repeat];
-		System.out.println("월을 입력하세요");
-		for (int i = 0; i < month.length; i++) {
+		while (true) {
+			System.out.println("월을 입력하세요");
 			System.out.print(PROMPT);
-			month[i] = scanner.nextInt();
-		}
-		for (int i = 0; i < month.length; i++) {
-			if (month[i] < 1 || month[i] > 12) {
-				System.out.println("1과 12사이의 수를 입력하세요");
-				continue;
+			int month = scanner.nextInt();
+			if (month < 1 || month > 12) {
+				System.out.println("1과 12사이의 수를 입력하세요. Bye~");
+				break;
 			}
-			System.out.printf("%d월달은 %d일까지 있습니다.\n", month[i], cal.getMaxDaysOfMonth(month[i]));
+			cal.printCalendar(2021, month);
 		}
-		cal.printSampleCalendar();
 		scanner.close();
 	}
 
