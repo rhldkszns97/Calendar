@@ -1,6 +1,17 @@
 package Jihun.Calendar;
 
+import static Jihun.Calendar.Prompt1.map;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Calendar1 {
+	
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+	
 
 	private static int[] MAX_DAYS = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	private static int[] LEAP_MAX_DAYS = { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -21,7 +32,8 @@ public class Calendar1 {
 		}
 	}
 
-	public void printCalendar(int year, int month) {
+	public void printCalendar(int year, int month) throws ParseException {
+		
 		System.out.printf("      <<%4d%3d>> \n", year, month);
 		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("----------------------");
@@ -35,13 +47,34 @@ public class Calendar1 {
 		}
 		for (int i = 1; i <= weekday; i++) {
 			System.out.print("   ");
-		}
+			}
+		
 		for (int i = 1; i <= count; i++) {
-			System.out.printf("%3d", i);
+			String str_first = year+"-"+month+"-"+i;
+			String first = sdf.format(sdf.parse(str_first));
+			if(map.containsKey(first)) {
+				System.out.printf(" %02d.",i);
+				continue;
+			}
+			System.out.printf(" %02d ", i);
 		}
 		System.out.println();
 		for (int i = count + 1; i <= getMaxDaysOfMonth(year, month); i++) {
-			System.out.printf("%3d", i);
+			String str_second = year+"-"+month+"-"+i;
+			String second = sdf.format(sdf.parse(str_second));
+			if(map.containsKey(second)) {
+				System.out.printf(" %02d.",i);
+				if (i % 7 == delim) {
+					System.out.println();
+				}
+				if (i == getMaxDaysOfMonth(year, month)) {
+					System.out.println();
+					System.out.println();
+				}
+			continue;	
+			}
+									
+			System.out.printf(" %2d ", i);
 
 			if (i % 7 == delim) {
 				System.out.println();
